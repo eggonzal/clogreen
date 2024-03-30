@@ -12,14 +12,15 @@
 
 .ProductList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); /* Crea columnas de tamaño flexible */
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); /* Crea columnas de tamaño flexible */
   gap: 1.25rem; /* Espacio entre las tarjetas */
   align-items: stretch;
   padding: 1rem;
+  font-size: 0.75rem;
 }
 
 .CategorySection {
-  background-color: #f9f9f9; /* Fondo gris */
+  background-color: #f6edf1; 
   padding: 0;
   margin-bottom: 1.5rem;
   margin-inline: 5vw;
@@ -31,15 +32,16 @@
   margin-inline: 5vw;
 }
 .CategorySection.Active > h2{
-  background-color: #f3b7ce; /* Fondo blanco para la categoría activa */
+  background-color: #f3b7ce;
+  padding-inline: calc(5vw);
 }
 
 .CategorySection > h2 {
   position: sticky;
   top: 0;
-  background-color: #fff; /* Fondo blanco para el encabezado pegajoso */
+  background-color: #fff;
   color: #ba5270;
-  padding: 10px;
+  padding-block: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-inline: 0;
@@ -60,7 +62,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Muestra máximo 3 líneas */
   -webkit-box-orient: vertical;
-  min-height: 4rem;
+  min-height: 3rem;
 }
 
 .ProductCard {
@@ -73,6 +75,7 @@
 
 .ProductCard h2 {
   margin-top: 0;
+  font-size: 1rem;
 }
 
 .ProductCard p {
@@ -130,17 +133,21 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
+  display: flex;
 }
 
 
 .ProductContainer .ModalContent {
-	position: absolute;
-	top: 15%;
-	left: 15%;
+	position: relative;
+	margin: auto;
+  display: block;
+  margin-inline: auto;
 	background-color: #fefefe;
 	padding: 20px;
-	border-radius: 30px;
-	max-width: 70vw;
+	border-radius: 2rem;
+  min-width: 15rem;
+  width: 90vw;
+	max-width: 50rem;
 	overflow: auto;
 	height: auto;
 	max-height: 70vh;
