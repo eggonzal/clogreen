@@ -1,17 +1,60 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-height: 100vh;
+
+}
 .ProductContainer {
+  flex: 1 1 stretch;
+  overflow-y: auto;
+}
+
+.ProductList {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); /* Crea columnas de tamaño flexible */
   gap: 1.25rem; /* Espacio entre las tarjetas */
   align-items: stretch;
+  padding: 1rem;
 }
 
-.ProductContainer > .ProductCard .ProductTitle {
+.CategorySection {
+  background-color: #f9f9f9; /* Fondo gris */
+  padding: 0;
+  margin-bottom: 1.5rem;
+  margin-inline: 5vw;
+}
+.CategorySection.Active {
+  margin-inline: 0;
+}
+.CategorySection.Active .ProductList{
+  margin-inline: 5vw;
+}
+.CategorySection.Active > h2{
+  background-color: #f3b7ce; /* Fondo blanco para la categoría activa */
+}
+
+.CategorySection > h2 {
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* Fondo blanco para el encabezado pegajoso */
+  color: #ba5270;
+  padding: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-inline: 0;
+  display: block;
+  z-index: 1;
+}
+
+
+.ProductList > .ProductCard .ProductTitle {
   white-space: nowrap; /* Evita el salto de línea */
   overflow: hidden; /* Oculta el exceso de texto */
   text-overflow: ellipsis; /* Agrega puntos suspensivos si el título es demasiado largo */
 }
 
-.ProductContainer > .ProductCard .ProductDescription {
+.ProductList > .ProductCard .ProductDescription {
   overflow: hidden; /* Oculta el exceso de texto */
   text-overflow: ellipsis; /* Agrega puntos suspensivos si el título es demasiado largo */
   display: -webkit-box;
@@ -22,6 +65,7 @@
 
 .ProductCard {
   border: 1px solid #ccc;
+  background-color: white;
   border-radius: 0.5rem; /* Utiliza rem en lugar de px */
   padding: 1.25rem; /* Utiliza rem en lugar de px */
   margin-bottom: 1.25rem; /* Utiliza rem en lugar de px */
