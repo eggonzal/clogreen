@@ -1,38 +1,40 @@
-.App {
-  text-align: center;
+.ProductContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); /* Crea columnas de tamaño flexible */
+  gap: 1.25rem; /* Espacio entre las tarjetas */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ProductCard {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem; /* Utiliza rem en lugar de px */
+  padding: 1.25rem; /* Utiliza rem en lugar de px */
+  margin-bottom: 1.25rem; /* Utiliza rem en lugar de px */
+}  
+
+.ProductCard h2 {
+  margin-top: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ProductCard p {
+  margin-bottom: 0.625rem; /* Utiliza rem en lugar de px */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ProductCard a {
+  display: inline-block;
+  padding: 0.3125rem 0.625rem; /* Utiliza rem en lugar de px */
+  background-color: #ffa6bf;
+  color: #faf5ef;
+  text-decoration: none;
+  border-radius: 0.1875rem; /* Utiliza rem en lugar de px */
 }
 
-.App-link {
-  color: #61dafb;
+.ProductCard a:hover {
+  color: #ffa6bf;
+  background-color: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ProductCard img {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: 200px; /* Define una altura fija para la imagen */
+  object-fit: cover; /* Ajusta la imagen para que cubra todo el contenedor sin distorsionarla */
 }

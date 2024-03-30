@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import products from './db.json';
+
+function ProductCard({descripcion, enlace, notas, imageurl, categoria}){
+  console.log(categoria);
+  return (
+    <div className='ProductCard'>
+      <h2>{descripcion}</h2>
+      <img src={imageurl} alt={descripcion} className="ProductImage" />
+      <p>{notas}</p>
+      <a href={enlace}>Ver producto</a>
+    </div>
+  );
+}
+
+function ProductContainer ({products}){
+  return (
+    <div className='ProductContainer'>
+      {products.map((product, index) => (
+        <ProductCard key={index} {...product} />
+        ))}
+    </div>
+  );
+}
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Productos</h1>
+      <ProductContainer products={products} />
     </div>
   );
 }
