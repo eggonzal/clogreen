@@ -22,7 +22,7 @@ function ProductCard({
         </button>
       )}
       <div className="CardToolbar">
-        <a href={enlace}>Ver producto</a>
+        <a href={enlace} target="_blank">Ver producto</a>
       </div>
     </div>
   );
