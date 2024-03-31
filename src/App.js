@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import products from "./db.json";
-import { GrExpand } from "react-icons/gr";
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import {FaExpandAlt} from "react-icons/fa"
+import Icon from '@mui/material/Icon';
 
 
 
@@ -12,9 +15,14 @@ function ProductCard({ descripcion, enlace, notas, imageurl, onViewMore }) {
       <h2 className="ProductTitle">{descripcion}</h2>
       <p className="ProductDescription">{notas}</p>
       {onViewMore && (
-        <GrExpand className="ProductCard__ViewMore"
-          onClick={() => onViewMore({ descripcion, enlace, notas, imageurl })}
-        />
+        <Tooltip className="ProductCard__ViewMore__Tooltip"
+          title="Ver Más" arrow>
+          <Button>
+            <FaExpandAlt  className="ProductCard__ViewMore"
+              onClick={() => onViewMore({ descripcion, enlace, notas, imageurl })}
+              />
+          </Button>
+        </Tooltip>
       )}
       <div className="CardToolbar">
         <a href={enlace} target="_blank">

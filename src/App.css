@@ -71,16 +71,16 @@
   padding: 1.25rem; /* Utiliza rem en lugar de px */
   margin-bottom: 1.25rem; /* Utiliza rem en lugar de px */
 }
-
-.ProductCard__ViewMore {
-  position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
+.ProductCard__ViewMore__Tooltip {
+  position: absolute !important;
+  top: 0 !important;
+  right: -1rem !important;
   border: 1rem solid transparent;
-  border-collapse: collapse;
-  font-weight: bolder;
-  font-size: larger;
-  cursor: pointer;
+  cursor: pointer !important;
+}
+.ProductCard__ViewMore {
+  font-size: 1rem !important;
+  color: #aa3355 !important;
 }
 
 .ProductCard h2 {
