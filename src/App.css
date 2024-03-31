@@ -73,8 +73,8 @@
 }
 .ProductCard__ViewMore__Tooltip {
   position: absolute !important;
-  top: 0 !important;
-  right: -1rem !important;
+  top: -0.2rem !important;
+  right: -0.2rem !important;
   border: 1rem solid transparent;
   cursor: pointer !important;
 }

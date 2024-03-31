@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import products from "./db.json";
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import {FaExpandAlt} from "react-icons/fa"
-import Icon from '@mui/material/Icon';
+import IconButton from '@mui/material/IconButton';
 
 
 
@@ -17,11 +16,11 @@ function ProductCard({ descripcion, enlace, notas, imageurl, onViewMore }) {
       {onViewMore && (
         <Tooltip className="ProductCard__ViewMore__Tooltip"
           title="Ver Más" arrow>
-          <Button>
+          <IconButton>
             <FaExpandAlt  className="ProductCard__ViewMore"
               onClick={() => onViewMore({ descripcion, enlace, notas, imageurl })}
               />
-          </Button>
+          </IconButton>
         </Tooltip>
       )}
       <div className="CardToolbar">
