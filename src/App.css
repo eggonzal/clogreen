@@ -6,7 +6,7 @@
 
 }
 .ProductContainer {
-  flex: 1 1 stretch;
+  flex: 1 1 auto;
   overflow-y: auto;
 }
 
@@ -37,18 +37,17 @@
 }
 
 .CategorySection > h2 {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  color: #ba5270;
-  padding-block: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-inline: 0;
-  display: block;
-  z-index: 1;
+	position: sticky;
+	top: 0;
+	background-color: #fff;
+	color: #ba5270;
+	padding-block: 0.2rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	margin-inline: 0;
+	display: block;
+	z-index: 1;
 }
-
 
 .ProductList > .ProductCard .ProductTitle {
   white-space: nowrap; /* Evita el salto de línea */
@@ -71,7 +70,18 @@
   border-radius: 0.5rem; /* Utiliza rem en lugar de px */
   padding: 1.25rem; /* Utiliza rem en lugar de px */
   margin-bottom: 1.25rem; /* Utiliza rem en lugar de px */
-}  
+}
+
+.ProductCard__ViewMore {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  border: 1rem solid transparent;
+  border-collapse: collapse;
+  font-weight: bolder;
+  font-size: larger;
+  cursor: pointer;
+}
 
 .ProductCard h2 {
   margin-top: 0;
@@ -143,11 +153,11 @@
   display: block;
   margin-inline: auto;
 	background-color: #fefefe;
-	padding: 20px;
+	padding: 1.5rem;
 	border-radius: 2rem;
   min-width: 15rem;
   width: 90vw;
-	max-width: 50rem;
+	max-width: 40rem;
 	overflow: auto;
 	height: auto;
 	max-height: 70vh;
@@ -186,7 +196,11 @@
   cursor: pointer;
 }
 
-
+/* ProductToolbar */
+.ProductToolbar {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 
 
