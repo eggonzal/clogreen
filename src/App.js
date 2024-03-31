@@ -16,10 +16,10 @@ function ProductCard({ descripcion, enlace, notas, imageurl, onViewMore }) {
       {onViewMore && (
         <Tooltip className="ProductCard__ViewMore__Tooltip"
           title="Ver Más" arrow>
-          <IconButton>
-            <FaExpandAlt  className="ProductCard__ViewMore"
-              onClick={() => onViewMore({ descripcion, enlace, notas, imageurl })}
-              />
+          <IconButton  
+            onClick={() => onViewMore({ descripcion, enlace, notas, imageurl })}
+          >
+            <FaExpandAlt  className="ProductCard__ViewMore"/>
           </IconButton>
         </Tooltip>
       )}
