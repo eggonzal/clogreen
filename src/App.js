@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import products from "./db.json";
 import Tooltip from '@mui/material/Tooltip';
-import {FaExpandAlt} from "react-icons/fa"
+import { FaExpandAlt } from "react-icons/fa"
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import IconButton from '@mui/material/IconButton';
-
-
+import { FavoritesProvider, useFavorites } from "./FavoritesContext";
 
 function ProductCard({ descripcion, enlace, notas, imageurl, onViewMore }) {
+  const { favorites, toggleFavorite } = useFavorites();
+  const isFavorite = !!favorites.filter(p => p.descripcion === descripcion).length;
   return (
     <div className="ProductCard">
       <img src={imageurl} alt={descripcion} className="ProductImage" />
@@ -24,6 +26,9 @@ function ProductCard({ descripcion, enlace, notas, imageurl, onViewMore }) {
         </Tooltip>
       )}
       <div className="CardToolbar">
+        <IconButton onClick={e => toggleFavorite({descripcion, enlace, notas, imageurl})}>
+            {isFavorite ? <AiFillHeart  className="ProductCard__Favorite"/> : <AiOutlineHeart  className="ProductCard__Favorite"/>}
+        </IconButton>
         <a href={enlace} target="_blank">
           Ver producto
         </a>
@@ -46,7 +51,7 @@ function ProductContainer({ products, categories }) {
       let currentCategory = categories[0];
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        if (rect.top <= 0) {
+        if (rect.top <= 135) {
           currentCategory = section.getAttribute("data-categoria");
         }
       });
@@ -183,16 +188,18 @@ function App() {
   );
   const [selectedCategories, setSelectedCategories] = useState([...categories]);
   return (
-    <div className="App">
-      <h1>Productos</h1>
-      <ProductToolbar
-        categories={categories}
-        selectedCategories={selectedCategories}
-        onCategoriesChange={setSelectedCategories} />
-      <ProductContainer
-        products={sortedProducts}
-        categories={selectedCategories}/>
-    </div>
+    <FavoritesProvider>
+      <div className="App">
+        <h1>Productos</h1>
+        <ProductToolbar
+          categories={categories}
+          selectedCategories={selectedCategories}
+          onCategoriesChange={setSelectedCategories} />
+        <ProductContainer
+          products={sortedProducts}
+          categories={selectedCategories}/>
+      </div>
+    </FavoritesProvider>
   );
 }
 

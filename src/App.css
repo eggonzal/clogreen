@@ -61,7 +61,9 @@
   display: -webkit-box;
   -webkit-line-clamp: 3; /* Muestra máximo 3 líneas */
   -webkit-box-orient: vertical;
-  min-height: 3rem;
+  min-height: calc(1.1em * 3);
+  line-height: 1.1em;
+  max-height: calc(1.1em * 3);
 }
 
 .ProductCard {
@@ -69,7 +71,7 @@
   background-color: white;
   border-radius: 0.5rem; /* Utiliza rem en lugar de px */
   padding: 1.25rem; /* Utiliza rem en lugar de px */
-  margin-bottom: 1.25rem; /* Utiliza rem en lugar de px */
+  margin-bottom: 0; /* Utiliza rem en lugar de px */
 }
 .ProductCard__ViewMore__Tooltip {
   position: absolute !important;
@@ -94,7 +96,8 @@
 
 .ProductCard a {
   display: inline-block;
-  padding: 0.3125rem 0.625rem; /* Utiliza rem en lugar de px */
+  padding-block-start: 0.2rem;
+  padding-block-end: 0.34rem;
   background-color: #ffa6bf;
   color: #faf5ef;
   font-weight: 650;
@@ -119,17 +122,27 @@
 
 /* Card Toolbar */
 .ProductCard .CardToolbar {
-  margin-top: 1.5rem;
+  margin-top: 0.75rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  gap: 0.25rem;
   align-content: center;
   align-items: center;
   align-content: center;
   text-align: center;
+  
 }
-.ProductCard .CardToolbar > * {
-  flex: 1 1 auto;
+.ProductCard .CardToolbar > a {
+  flex: 1 0 auto;
 }
+.ProductCard .CardToolbar > IconButton {
+  flex: 0 0 auto;
+}
+.ProductCard__Favorite {
+  font-size: 1.4rem;
+  color: #aa3355;
+}
+
 /* Modal */
 .ProductCard {
   position: relative;
