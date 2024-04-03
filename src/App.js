@@ -5,7 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { FaExpandAlt } from "react-icons/fa"
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import IconButton from '@mui/material/IconButton';
-import { FavoritesProvider, useFavorites } from "./FavoritesContext";
+import { useFavorites } from "./FavoritesContext";
 
 function ProductCard({ categoria, descripcion, enlace, notas, imageurl, onViewMore }) {
   const { favorites, toggleFavorite, filterFavorites } = useFavorites();
@@ -124,7 +124,7 @@ function ProductToolbar({
 
   const handleCheckboxChange = (category) => {
     if(filterFavorites && !categoriesWithFavorites.includes(category)) return;
-    
+
     const updatedCategoriesSelected = [...selectedCategories];
     if (updatedCategoriesSelected.includes(category)) {
       updatedCategoriesSelected.splice(updatedCategoriesSelected.indexOf(category), 1);
@@ -163,37 +163,41 @@ function ProductToolbar({
   }, [categories, selectedCategories]);
 
   return (
-    <div className="ProductToolbar">
-      <div className="ProductToolbar__All"
-        onClick={handleSelectAllChange}
-      >
-        <input
-          type="checkbox"
-          id="selectAll"
-          checked={selectAll}
-          onChange={(e) => {handleSelectAllChange(); e.stopPropagation()}}
-        />
-        <span htmlFor="selectAll">Ver Todo</span>
-      </div>
-      <div className="ProductToolbar__FavoritesFilter"
-        onClick={e => handleFilterFavorites()}
-      >
-        <IconButton >
-            {filterFavorites ? <AiFillHeart  className="ProductToolbar__FavoritesFilter__Icon"/> : <AiOutlineHeart  className="ProductToolbar__FavoritesFilter__Icon"/>}
-        </IconButton>
-        <span>Filtrar Favoritos</span>
-      </div>
-      {categories.map((category, index) => (
-        <div key={index} 
-          onClick={(e) => handleCheckboxChange(category)}
-          className={`ProductToolbar__option ${
-             selectedCategories.includes(category) ? 'active' : ''
-          }`}
+    <>
+      <div className="ProductToolbar">
+        <div className="ProductToolbar__All"
+          onClick={handleSelectAllChange}
         >
-          <span>{category}</span>
+          <input
+            type="checkbox"
+            id="selectAll"
+            checked={selectAll}
+            onChange={(e) => {handleSelectAllChange(); e.stopPropagation()}}
+          />
+          <span htmlFor="selectAll">Ver Todo</span>
         </div>
-      ))}
-    </div>
+        <div className="ProductToolbar__FavoritesFilter"
+          onClick={e => handleFilterFavorites()}
+        >
+          <IconButton >
+              {filterFavorites ? <AiFillHeart  className="ProductToolbar__FavoritesFilter__Icon"/> : <AiOutlineHeart  className="ProductToolbar__FavoritesFilter__Icon"/>}
+          </IconButton>
+          <span>Filtrar Favoritos</span>
+        </div>
+      </div>
+      <div className="ProductToolbar">
+        {(filterFavorites ? categories.filter(c=>categoriesWithFavorites.includes(c)) : categories).map((category, index) => (
+          <div key={index} 
+            onClick={(e) => handleCheckboxChange(category)}
+            className={`ProductToolbar__option ${
+              selectedCategories.includes(category) ? 'active' : ''
+            }`}
+          >
+            <span>{category}</span>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
