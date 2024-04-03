@@ -194,7 +194,7 @@ function App() {
   return (
     <FavoritesProvider>
       <div className="App">
-        <h1>Productos</h1>
+        <h3>Productos</h3>
         <ProductToolbar
           categories={categories}
           selectedCategories={selectedCategories}

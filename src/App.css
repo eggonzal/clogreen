@@ -217,6 +217,7 @@
   align-items: center;
   gap: 0.25rem;
   margin-bottom: 0.5rem;
+  font-size: smaller;
 }
 .ProductToolbar label {
   cursor: pointer;
@@ -229,7 +230,7 @@
 	border: 2px solid #dbc4ce;
 	background-color: #fee;
 	border-radius: 1.25rem;
-	padding: 0.25rem;
+	padding: 0.2rem;
 	cursor: pointer;
 	flex: 1 0 auto;
 	text-align: center;
@@ -242,7 +243,7 @@
   border: 2px solid #ba5270;
   background-color: #db7390;
   border-radius: 1.25rem;
-  padding: 0.25rem;
+  padding: 0.2rem;
   cursor: pointer;
   flex: 1 0 auto;
   text-align: center;
