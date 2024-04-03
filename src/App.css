@@ -213,8 +213,43 @@
 .ProductToolbar {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
 }
-
-
-
-
+.ProductToolbar label {
+  cursor: pointer;
+}
+.ProductToolbar__All { width: 100%;}
+.ProductToolbar__All, .ProductToolbar__All > * {
+  cursor: pointer;
+}
+.ProductToolbar__option {
+	border: 2px solid #dbc4ce;
+	background-color: #fee;
+	border-radius: 1.25rem;
+	padding: 0.25rem;
+	cursor: pointer;
+	flex: 1 0 auto;
+	text-align: center;
+	color: #bdbdbd;
+	font-weight: bolder;
+	margin-inline: 0.3rem;
+	padding-inline: 0.5rem;
+}
+.ProductToolbar__option.active {
+  border: 2px solid #ba5270;
+  background-color: #db7390;
+  border-radius: 1.25rem;
+  padding: 0.25rem;
+  cursor: pointer;
+  flex: 1 0 auto;
+  text-align: center;
+  color: #ffedda;
+  font-weight: bolder;
+  margin-inline: 0.3rem;
+  padding-inline: 0.5rem;
+  box-shadow: 0px 0 2px 1px #ff00005c;
+  transition: background-color 0.3s;
+}

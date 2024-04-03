@@ -152,26 +152,30 @@ function ProductToolbar({
 
   return (
     <div className="ProductToolbar">
-      <div>
+      <div className="ProductToolbar__All"
+        onClick={handleSelectAllChange}
+      >
         <input
           type="checkbox"
           id="selectAll"
-          className="ProductToolbar__option"
           checked={selectAll}
-          onChange={handleSelectAllChange}
         />
-        <label htmlFor="selectAll">Todo</label>
+        <span htmlFor="selectAll">Todo</span>
       </div>
       {categories.map((category, index) => (
-        <div key={index} className="ProductToolbar__option">
+        <div key={index} 
+          onClick={() => handleCheckboxChange(category)}
+          className={`ProductToolbar__option ${
+            selectedCategories.includes(category) ? 'active' : ''
+          }`}
+        >
           <input
             type="checkbox"
             id={`categoria-${index}`}
             value={category}
-            checked={selectedCategories.includes(category)}
-            onChange={() => handleCheckboxChange(category)}
+            hidden
           />
-          <label htmlFor={`categoria-${index}`}>{category}</label>
+          <span htmlFor={`categoria-${index}`}>{category}</span>
         </div>
       ))}
     </div>
