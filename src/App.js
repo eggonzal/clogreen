@@ -7,11 +7,11 @@ import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import IconButton from '@mui/material/IconButton';
 import { FavoritesProvider, useFavorites } from "./FavoritesContext";
 
-function ProductCard({ descripcion, enlace, notas, imageurl, onViewMore }) {
-  const { favorites, toggleFavorite } = useFavorites();
+function ProductCard({ categoria, descripcion, enlace, notas, imageurl, onViewMore }) {
+  const { favorites, toggleFavorite, filterFavorites } = useFavorites();
   const isFavorite = !!favorites.filter(p => p.descripcion === descripcion).length;
   return (
-    <div className="ProductCard">
+    <div className="ProductCard" hidden={filterFavorites && !isFavorite}>
       <img src={imageurl} alt={descripcion} className="ProductImage" />
       <h2 className="ProductTitle">{descripcion}</h2>
       <p className="ProductDescription">{notas}</p>
@@ -26,7 +26,7 @@ function ProductCard({ descripcion, enlace, notas, imageurl, onViewMore }) {
         </Tooltip>
       )}
       <div className="CardToolbar">
-        <IconButton onClick={e => toggleFavorite({descripcion, enlace, notas, imageurl})}>
+        <IconButton onClick={e => toggleFavorite({categoria, descripcion, enlace, notas, imageurl})}>
             {isFavorite ? <AiFillHeart  className="ProductCard__Favorite"/> : <AiOutlineHeart  className="ProductCard__Favorite"/>}
         </IconButton>
         <a href={enlace} target="_blank">
@@ -120,8 +120,11 @@ function ProductToolbar({
   onCategoriesChange,
 }) {
   const [selectAll, setSelectAll] = useState(false);
+  const {categoriesWithFavorites, filterFavorites, setFilterFavorites} = useFavorites()
 
   const handleCheckboxChange = (category) => {
+    if(filterFavorites && !categoriesWithFavorites.includes(category)) return;
+    
     const updatedCategoriesSelected = [...selectedCategories];
     if (updatedCategoriesSelected.includes(category)) {
       updatedCategoriesSelected.splice(updatedCategoriesSelected.indexOf(category), 1);
@@ -140,13 +143,22 @@ function ProductToolbar({
       onCategoriesChange([]);
     }
   };
+  const handleFilterFavorites = () => {
+    setFilterFavorites(!filterFavorites);
+  }
 
   useEffect(() => {
     // Verificar si todas las categorías están seleccionadas para actualizar selectAll
-    if (selectedCategories.length === categories.length) {
-      setSelectAll(true);
-    } else {
-      setSelectAll(false);
+    if(filterFavorites){
+      if (selectedCategories.length === categoriesWithFavorites.length)
+        setSelectAll(true);
+      else 
+        setSelectAll(false);
+    }else{
+      if (selectedCategories.length === categories.length)
+        setSelectAll(true);
+      else 
+        setSelectAll(false);
     }
   }, [categories, selectedCategories]);
 
@@ -159,23 +171,26 @@ function ProductToolbar({
           type="checkbox"
           id="selectAll"
           checked={selectAll}
+          onChange={(e) => {handleSelectAllChange(); e.stopPropagation()}}
         />
-        <span htmlFor="selectAll">Todo</span>
+        <span htmlFor="selectAll">Ver Todo</span>
+      </div>
+      <div className="ProductToolbar__FavoritesFilter"
+        onClick={e => handleFilterFavorites()}
+      >
+        <IconButton >
+            {filterFavorites ? <AiFillHeart  className="ProductToolbar__FavoritesFilter__Icon"/> : <AiOutlineHeart  className="ProductToolbar__FavoritesFilter__Icon"/>}
+        </IconButton>
+        <span>Filtrar Favoritos</span>
       </div>
       {categories.map((category, index) => (
         <div key={index} 
-          onClick={() => handleCheckboxChange(category)}
+          onClick={(e) => handleCheckboxChange(category)}
           className={`ProductToolbar__option ${
-            selectedCategories.includes(category) ? 'active' : ''
+             selectedCategories.includes(category) ? 'active' : ''
           }`}
         >
-          <input
-            type="checkbox"
-            id={`categoria-${index}`}
-            value={category}
-            hidden
-          />
-          <span htmlFor={`categoria-${index}`}>{category}</span>
+          <span>{category}</span>
         </div>
       ))}
     </div>
@@ -183,6 +198,7 @@ function ProductToolbar({
 }
 
 function App() {
+  const {favorites, filterFavorites} = useFavorites();
   const sortedProducts = products.sort((a, b) =>
     a.categoria.localeCompare(b.categoria)
   );
@@ -191,19 +207,41 @@ function App() {
     new Set(sortedProducts.map((product) => product.categoria))
   );
   const [selectedCategories, setSelectedCategories] = useState([...categories]);
+  const [selectedCategoriesBackup, setSelectedCategoriesBackup] = useState(selectedCategories);
+
+  const handleCategoriesChange = (newSelectedCategories) => {
+    const categoriesWithFavorites = Array.from(
+      new Set(favorites.map((product) => product.categoria))
+    );
+    if(filterFavorites)
+      setSelectedCategories(newSelectedCategories.filter(c => categoriesWithFavorites.includes(c)));
+    else
+      setSelectedCategories(newSelectedCategories);
+  };
+
+  useEffect(()=>{
+    const categoriesWithFavorites = Array.from(
+      new Set(favorites.map((product) => product.categoria))
+    );
+    if(filterFavorites){
+      setSelectedCategoriesBackup(selectedCategories);
+      setSelectedCategories(selectedCategories.filter(c => categoriesWithFavorites.includes(c)));
+    } else {
+      const disabledCategoriesWithFavorites = categoriesWithFavorites.filter(c => !selectedCategories.includes(c));
+      // disable categories from the backup that where disabled during favorites view
+      setSelectedCategories(selectedCategoriesBackup.filter(c => !disabledCategoriesWithFavorites.includes(c)));
+    }
+  }, [filterFavorites]);
   return (
-    <FavoritesProvider>
       <div className="App">
-        <h3>Productos</h3>
         <ProductToolbar
           categories={categories}
           selectedCategories={selectedCategories}
-          onCategoriesChange={setSelectedCategories} />
+          onCategoriesChange={handleCategoriesChange} />
         <ProductContainer
           products={sortedProducts}
           categories={selectedCategories}/>
       </div>
-    </FavoritesProvider>
   );
 }
 

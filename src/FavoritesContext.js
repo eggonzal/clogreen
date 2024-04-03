@@ -7,14 +7,20 @@ export const useFavorites = () => useContext(FavoritesContext);
 
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
+  const [categoriesWithFavorites, setCategoriesWithFavorites] = useState([])
+  const [filterFavorites, setFilterFavorites] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   // Cargar favoritos desde localStorage al cargar la aplicación
   useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem('favorites'));
+    const newCategoriesWithFavorites = Array.from(
+      new Set(favorites.map((product) => product.categoria))
+    );
     console.log(`Loaded Favorites: `, savedFavorites)
     if (savedFavorites) {
       setFavorites(savedFavorites);
+      setCategoriesWithFavorites(newCategoriesWithFavorites);
     }
     setLoaded(true);
   }, []);
@@ -24,6 +30,10 @@ export const FavoritesProvider = ({ children }) => {
     if(loaded){
         console.log(`Saving favorites: \n`, favorites);
         localStorage.setItem('favorites', JSON.stringify(favorites));
+        const newCategoriesWithFavorites = Array.from(
+          new Set(favorites.map((product) => product.categoria))
+        );
+        setCategoriesWithFavorites(newCategoriesWithFavorites);
     }
   }, [loaded, favorites]);
 
@@ -37,7 +47,7 @@ export const FavoritesProvider = ({ children }) => {
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, toggleFavorite }}>
+    <FavoritesContext.Provider value={{ favorites, toggleFavorite, categoriesWithFavorites, filterFavorites, setFilterFavorites }}>
       {children}
     </FavoritesContext.Provider>
   );

@@ -143,6 +143,7 @@
   color: #aa3355;
 }
 
+
 /* Modal */
 .ProductCard {
   position: relative;
@@ -218,13 +219,33 @@
   gap: 0.25rem;
   margin-bottom: 0.5rem;
   font-size: smaller;
+  padding-block: 0.25rem;
 }
 .ProductToolbar label {
   cursor: pointer;
 }
-.ProductToolbar__All { width: 100%;}
-.ProductToolbar__All, .ProductToolbar__All > * {
+.ProductToolbar__All, .ProductToolbar__FavoritesFilter {
+  flex: 1 0 49%;
+  text-align: center;
+
+  border: 2px solid #ba5270;
+  border-radius: 5rem;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0px 0 2px 1px #ff00005c;
+  margin-bottom: 0.25rem;
+}
+
+.ProductToolbar__All, .ProductToolbar__FavoritesFilter, .ProductToolbar__All > * {
   cursor: pointer;
+}
+
+.ProductToolbar__FavoritesFilter__Icon {
+  font-size: 1.4rem;
+  color: #aa3355;
 }
 .ProductToolbar__option {
 	border: 2px solid #dbc4ce;
