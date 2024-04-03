@@ -15,8 +15,8 @@ export const FavoritesProvider = ({ children }) => {
     console.log(`Loaded Favorites: `, savedFavorites)
     if (savedFavorites) {
       setFavorites(savedFavorites);
-      setLoaded(true);
     }
+    setLoaded(true);
   }, []);
 
   // Guardar favoritos en localStorage cada vez que cambien
