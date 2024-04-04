@@ -233,7 +233,10 @@ function App() {
     } else {
       const disabledCategoriesWithFavorites = categoriesWithFavorites.filter(c => !selectedCategories.includes(c));
       // disable categories from the backup that where disabled during favorites view
-      setSelectedCategories(selectedCategoriesBackup.filter(c => !disabledCategoriesWithFavorites.includes(c)));
+      setSelectedCategories(
+        Array.from(new Set(selectedCategoriesBackup.concat(selectedCategories)))
+        .filter(c => !disabledCategoriesWithFavorites.includes(c))
+      );
     }
   }, [filterFavorites]);
   return (
