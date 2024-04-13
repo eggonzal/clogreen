@@ -12,7 +12,7 @@ function ProductCard({ categoria, descripcion, enlace, notas, imageurl, onViewMo
   const isFavorite = !!favorites.filter(p => p.descripcion === descripcion).length;
   return (
     <div className="ProductCard" hidden={filterFavorites && !isFavorite}>
-      <img src={imageurl} alt={descripcion} className="ProductImage" />
+      <img src={imageurl} alt={descripcion} className={`ProductImage${/__ Clogreen /.test(descripcion) ? ' make-circle' : ''}`} />
       <h2 className="ProductTitle">{descripcion}</h2>
       <p className="ProductDescription">{notas}</p>
       {onViewMore && (

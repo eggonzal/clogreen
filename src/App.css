@@ -275,3 +275,13 @@
   box-shadow: 0px 0 2px 1px #ff00005c;
   transition: background-color 0.3s;
 }
+
+
+
+img.make-circle {
+    border-radius: 100%;
+    border: 3px solid #fbfbfb;
+    width: auto;
+    margin: calc(50% - 51.5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
