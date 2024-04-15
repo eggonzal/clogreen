@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { useEffect, useState } from "react";
 import "./App.css";
 import products from "./db.json";
@@ -33,6 +34,7 @@ function ProductCard({ categoria, descripcion, enlace, notas, imageurl, onViewMo
           Ver producto
         </a>
       </div>
+      <SpeedInsights />
     </div>
   );
 }
