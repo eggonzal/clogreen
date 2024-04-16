@@ -10,6 +10,26 @@
         "notas": "Tu solución integral para el aseo, control de la caída del pelo y relajación de tu amigo peludo. ¡Experimenta una reducción significativa de la caída del pelo y disfruta de un espacio de vida más limpio y sin pelo!"
     },
     {
+        "categoria": "HOGAR",
+        "imagen": {
+            "valueType": "IMAGE"
+        },
+        "imageurl": "https://m.media-amazon.com/images/I/61OUydcafnL._AC_SL1500_.jpg",
+        "descripcion": "PUBUNUS Encendedor Eléctrico",
+        "enlace": "https://amzn.to/4aDCe5c",
+        "notas": "Encendedor eléctrico recargable por USB Tipo C con indicadores LED de nivel de batería, garantizando una carga rápida en solo 1.5 horas. Diseño seguro con apagado automático y bloqueo de seguridad para protección infantil. Su cuello flexible y gancho conveniente permiten un uso versátil en interiores y exteriores, con tecnología a prueba de viento para encender velas, estufas y más en cualquier condición."
+    },
+    {
+        "categoria": "BELLEZA",
+        "imagen": {
+            "valueType": "IMAGE"
+        },
+        "imageurl": "https://ae01.alicdn.com/kf/Sd40e0d9947eb4ac9821e6436eeac895ad.jpg",
+        "descripcion": "Mascara dormir de imitación de seda",
+        "enlace": "https://s.click.aliexpress.com/e/_mrkvTga",
+        "notas": "Cada máscara para los ojos tiene un patrón bellamente diseñado. El último diseño de moda único del patrón te hará sentir diferente, lucir bien y elegante.\r\nHecho de imitación de seda de tela. El suave tacto brinda un resplandor cálido en tus sueños. Adecuado para todos los tipos de piel.\r\nCapa interior de algodón, superficie suave y sin arrugas, cuida tus ojos.\r\nBloquea la luz deslumbrante, este producto puede bloquear la luz de los espacios, para proporcionar un mejor efecto de sombreado. Te brinda un dulce sueño."
+    },
+    {
         "categoria": "GATOS",
         "imagen": {
             "valueType": "IMAGE"
