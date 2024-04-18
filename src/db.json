@@ -10,6 +10,16 @@
         "notas": "Tu solución integral para el aseo, control de la caída del pelo y relajación de tu amigo peludo. ¡Experimenta una reducción significativa de la caída del pelo y disfruta de un espacio de vida más limpio y sin pelo!"
     },
     {
+        "categoria": "GATOS",
+        "imagen": {
+            "valueType": "IMAGE"
+        },
+        "imageurl": "https://ae01.alicdn.com/kf/Se638a20b8b6a468c8fdbb900921335c2z.jpg",
+        "descripcion": "Rascador protector de muebles",
+        "enlace": "https://s.click.aliexpress.com/e/_mq8XWXk",
+        "notas": "Protector con rascador para muebles, en diferentes colores y tamaños. Faciles de poner"
+    },
+    {
         "categoria": "HOGAR",
         "imagen": {
             "valueType": "IMAGE"
