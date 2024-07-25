@@ -14,6 +14,36 @@
         "imagen": {
             "valueType": "IMAGE"
         },
+        "imageurl": "https://m.media-amazon.com/images/I/71MB0f9lDiL._AC_SX679_.jpg",
+        "descripcion": "REDKEN- Shampoo All Soft | Shampoo hidratante para cabello seco y quebradizo ",
+        "enlace": "https://amzn.to/3YldwmQ",
+        "notas": "* Shampoo All Soft para cabello seco y quebradizo, limpia gentilmente y suaviza el cabello | * Hidrata, nutre el cabello seco, aumenta la manejabilidad, flexibilidad y brillo | * Formulado con Moisture Complex contiene aceite de argán que aporta suavidad | * Aplicar diariamente sobre el cabello húmedo. Emulsionar y enjuagar |"
+    },
+    {
+        "categoria": "BELLEZA",
+        "imagen": {
+            "valueType": "IMAGE"
+        },
+        "imageurl": "https://m.media-amazon.com/images/I/41cqM3FYB-L._AC_SX679_.jpg",
+        "descripcion": "CHI 44 Iron Guard, 8 Oz Spray protector de calor para el cabello",
+        "enlace": "https://amzn.to/3WCHyB1",
+        "notas": "* Protección Térmica Avanzada: Este spray crea una barrera de protección que escuda tu cabello del calor extremo. | * Reducción del Frizz: Ayuda a controlar el frizz y a mantener tu cabello suave y manejable, incluso después de la exposición al calor. | * Acondicionamiento Adicional: Algunas fórmulas de protectores, como Chi 44 Iron Guard, también aportan acondicionamiento adicional, lo que deja tu cabello con una sensación suave y saludable. | * Calidad Profesional: Chi es conocida por sus productos de calidad profesional, y este spray no es una excepción, proporcionando una protección efectiva. | * Fácil de Usar: El formato en spray hace que la aplicación sea fácil y uniforme, permitiéndote cubrir tu cabello de manera efectiva. |"
+    },
+    {
+        "categoria": "HOGAR",
+        "imagen": {
+            "valueType": "IMAGE"
+        },
+        "imageurl": "https://m.media-amazon.com/images/I/51IMOMxH1NL._AC_SX522_.jpg",
+        "descripcion": "Leather Honey Acondicionador para Cuero - Acondicionador Premium Desde 1968 para Ropa de Cuero, Muebles, Interiores de Automóviles, Zapatos, Bolsos y Accesorios, sin Tóxicos y Hecho en USA",
+        "enlace": "https://amzn.to/3zUEfMJ",
+        "notas": "* POTENTE ACONDICIONADOR DE CUERO: Leather Honey penetra en profundidad para proteger cueros nuevos y rejuvenecer cueros más viejos y secos. Este acondicionador de cuero para coches sin tóxicos no contiene siliconas, disolventes ni productos de origen animal. No es pegajoso y es completamente inodoro. Protege el cuero durante todo el año de nieve y lluvia con nuestra fórmula repelente al agua | * RESTAURA TODO TIPO/COLOR DE CUERO: Suaviza muebles de cuero e hidrata los interiores de cuero del coche con el hidratador y devuelve su flexibilidad a tu cinturón o zapatos de cuero favoritos. ¡Ideal para limpiar la tapicería, asientos de camiones, el cuero de una motocicleta, botas, guantes, carteras, chaquetas y sillas de montar! El limpiador de cuero no debe usarse en gamuza, piel sintética o vinilo | * DE NEGOCIO FAMILIAR, HECHO EN ESTADOS UNIDOS, ESPECIALMENTE FORMULADO: Hemos fabricado los mejores productos para el cuidado del cuero desde hace más de 50 años, incluyendo productos de limpieza para coches y el acondicionador de cuero Leather Honey, # 1 en Amazon. Aprovéchate de nuestro reparador de cuero con el acondicionador Leather Honey, también un éxito de ventas de Amazon | * UN POCO DA PARA MUCHO: Para su aplicación, coloca una gota de un cuarto de tamaño de acondicionador de Leather Honey en un paño aplicador sin pelusa de Leather Honey. Prueba un poco en un área discreta y deja que se seque. Luego cubre completamente tu cuero con una capa delgada y uniforme de líquido. Usa el producto a temperatura ambiente o caliéntalo ligeramente antes | * GARANTÍA ILIMITADA DEL 100% DE SATISFACCIÓN: Nuestra pequeña empresa familiar cuenta con millones de clientes satisfechos. Si no quedas satisfecho con alguno de nuestros productos de cuidado para el cuero, simplemente devuélvelos y te reembolsaremos la cantidad al completo |"
+    },
+    {
+        "categoria": "BELLEZA",
+        "imagen": {
+            "valueType": "IMAGE"
+        },
         "imageurl": "https://ae01.alicdn.com/kf/S478f95676e1843a085fc5cafc458cfcax/Barra-rizadora-sin-calor-rizadores-de-cabello-perezosos-rodillos-para-el-cabello-sin-calor-varillas-flexibles.jpg",
         "descripcion": "Barra Rizadora Sin Calor",
         "enlace": "https://a.aliexpress.com/_mLnTXQW",
